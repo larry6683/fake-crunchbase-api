@@ -4,7 +4,7 @@ const port = 3000;
 
 // Fake data
 const data = {
-    "data": {
+    "ExCompany": {
         "properties": {
             "name": "Example Company",
             "description": "This is an example company.",
@@ -13,9 +13,9 @@ const data = {
         "relationships": {
             "subsidiaries": {
                 "items": [
-                    {"properties": {"name": "Subsidiary 1"}},
-                    {"properties": {"name": "Subsidiary 2"}},
-                    {"properties": {"name": "Subsidiary 3"}}
+                    {"properties": {"name": "Apple"}},
+                    {"properties": {"name": "Google"}},
+                    {"properties": {"name": "Facebook"}}
                 ]
             }
         }
@@ -23,8 +23,15 @@ const data = {
 };
 
 // API endpoint
-app.get('/', (req, res) => {
-    res.json(data);
+app.get('/v3', (req, res) => {
+    const companyName = req.query.name;
+
+    // Check if the company name matches the data
+    if (companyName && data[companyName]) {
+        res.json(data[companyName]);
+    } else {
+        res.status(404).json({ message: 'Company not found' });
+    }
 });
 
 app.listen(port, () => {
