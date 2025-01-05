@@ -23,7 +23,7 @@ const data = {
 };
 
 // API endpoint
-app.get('/v3.1/organizations', (req, res) => {
+app.get('/', (req, res) => {
     res.json(data);
 });
 
