@@ -23,7 +23,7 @@ const data = {
 };
 
 // API endpoint
-app.get('/v3', (req, res) => {
+app.get('/', (req, res) => {
     const companyName = req.query.name;
 
     // Check if the company name matches the data
