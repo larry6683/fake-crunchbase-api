@@ -24,7 +24,7 @@ const data = {
 
 // API endpoint
 app.get('/', (req, res) => {
-    const companyName = req.query.name;
+    const companyName = req.query.companyName;
 
     // Check if the company name matches the data
     if (companyName && data[companyName]) {
