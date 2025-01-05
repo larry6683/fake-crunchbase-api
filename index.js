@@ -6,7 +6,7 @@ const port = 3000;
 const data = {
     "ExCompany": {
         "properties": {
-            "name": "Example Company",
+            "companyName": "Example Company",
             "description": "This is an example company.",
             "address": "123 Example St, Example City, EX 12345"
         },
